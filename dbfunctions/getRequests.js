@@ -68,7 +68,6 @@ module.exports = {
                 }
                 
                  )
-            db.close();
         })})
    
     },
@@ -94,7 +93,7 @@ module.exports = {
                 }
                 
                  )
-            db.close();
+            
         })})
 
 
@@ -115,7 +114,7 @@ module.exports = {
                 }
                 
                  )
-            db.close();
+            
         })})
 
 
@@ -142,6 +141,22 @@ module.exports = {
             //db.close();
         })})
 
+    },
+
+    updateAttendanceForEvent: function updateAttendanceForEvent(eventNameMessage) {
+        MongoClient.connect(uri, {useNewUrlParser:true}, function(err,client) {
+            const db = client.db("messaging_app");
+            db.collection("event", function(err,collection){
+
+                collection.update({eventName: eventNameMessage}, {$inc: {attendance: 1 }},function(err, eventResp){
+                    if(err){return err;}
+                    console.log("Updated Document to increase by attendance");
+
+                }
+                
+                 )
+            //db.close();
+        })})
     }
 
 

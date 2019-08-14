@@ -48,11 +48,13 @@ router.post('/send/:groupname/:message', function(req,res,next){
 router.post('/sms', function (req, res, next) {
     const twiml = new MessagingResponse();
     // based on this response, call another function that puts data into database, based on the result 
+    var eventName = req.body.Body.substring(0, "/");
+    var message = req.body.Body("/");
     var attendance = 0;
-    if (req.body.Body == 'Yes' || req.body.Body == 'yes') {
+    if (message == 'Yes' || message == 'yes') {
       twiml.message('Great! See you there!');
-      attendance = 1;
-    } else if (req.body.Body == 'no' || req.body.Body == 'No') {
+      dbfunctions.updateAttendanceForEvent(eventName);
+    } else if (message == 'no' || message == 'No') {
       twiml.message('Aww man, See you Soon!');
     } else {
       twiml.message(
@@ -64,12 +66,6 @@ router.post('/sms', function (req, res, next) {
     res.end(twiml.toString());
 }
 )
-
-
-
-
-
-
 
 
 
