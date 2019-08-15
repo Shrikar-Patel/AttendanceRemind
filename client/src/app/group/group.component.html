@@ -1,14 +1,29 @@
 <div class = "container">
+        <div class = "row">
+                <div class = 'col'>
+                    <h2>GROUP NAME</h2>
+                </div>
+                <div class = 'col'>
+                      <h2> USER </h2>
+                </div>
+                <div class = 'col'>
+                    <h2> NUMBERS</h2> 
+                </div>
+
+        </div>
+
     <div *ngFor = "let group of groups">
-        <div class = 'col-md-3'>
-            {{group.group}}
+        <div class = "row">
+        <div class = 'col'>
+            <dt>{{group.group}}</dt>
         </div>
-        <div class = 'col-md-3'>
-                {{group.user}}
+        <div class = 'col'>
+              <dt>  {{group.user}} </dt>
         </div>
-        <div class = 'col-md-3'>
-                {{group.numbers}}
+        <div class = 'col'>
+              <dt>  {{group.numbers}}</dt> 
         </div>
+    </div>
 
 
     </div>

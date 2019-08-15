@@ -14,13 +14,13 @@ const httpOptions = {
 })
 export class GroupService {
 
-  group: Group;
+  groups: Group[];
 
   constructor(private http: HttpClient) { }
   
 
-  getGroups(): Observable<any>{
-    return this.http.get('http://localhost:8080/api/listgroups').pipe(map(this.group));
+  public getGroups(){
+    return this.http.get<Group []>('http://localhost:8080/api/listgroups');
   }
 
   createGroup(newGroup){
