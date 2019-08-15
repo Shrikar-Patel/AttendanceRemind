@@ -17,6 +17,7 @@ module.exports = {
                     return groupsArray;
                 })
             })
+            db.on(close());
         }
         }
     )
@@ -40,7 +41,9 @@ module.exports = {
                 
             }
         )
-    })}
+    })
+    db.on(close());
+}
     )
 
 },
@@ -68,7 +71,9 @@ module.exports = {
                 }
                 
                  )
-        })})
+        })
+    
+        db.on(close());})
    
     },
 
@@ -94,7 +99,8 @@ module.exports = {
                 
                  )
             
-        })})
+        })
+        db.on(close());})
 
 
     },
@@ -115,7 +121,8 @@ module.exports = {
                 
                  )
             
-        })})
+        })
+        db.on(close())})
 
 
     },
@@ -138,7 +145,7 @@ module.exports = {
                 }
                 
                  )
-            //db.close();
+            db.on(close());
         })})
 
     },
@@ -156,7 +163,8 @@ module.exports = {
                 
                  )
             //db.close();
-        })})
+        })
+        db.on(close())})
     }
 
 
