@@ -11,7 +11,7 @@ import {Group} from './group';
 export class GroupComponent implements OnInit {
   groups: Group [];
   group: Group;
-  groupName : string;
+  groupName: string;
   user: string;
   numbers: number[];
   constructor(private groupService: GroupService ) { }

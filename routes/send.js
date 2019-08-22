@@ -16,13 +16,13 @@ router.get('/send', function(req,res,next){
 
 
 
-router.post('/send/:groupname/:message', function(req,res,next){
+router.post('/send/message', function(req,res,next){
 
-      dbfunctions.createEvent(req.body.eventName, req.body.groupname, function(err, result){
+      dbfunctions.createEvent(req.body.eventName, req.body.groupName, function(err, result){
           console.log('Successfully created an event');
       })
     
-      dbfunctions.getNumbersByGroup(req.body.groupname, function(result) {
+      dbfunctions.getNumbersByGroup(req.body.groupName, function(result) {
         console.log(result);
         res.send(result);
 
@@ -31,7 +31,7 @@ router.post('/send/:groupname/:message', function(req,res,next){
         for ( i =0; i< phones.length; i++){
             const message = {
                 to: phones[i],
-                from: '+19084021532',
+                from: process.env.TWILIO_NUMBER,
                 body: req.body.message
               };
               twilio.messages.create(message).then((sentMessage) => {

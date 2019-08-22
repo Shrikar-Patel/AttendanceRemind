@@ -17,7 +17,7 @@ module.exports = {
                     return groupsArray;
                 })
             })
-            db.on(close());
+            
         }
         }
     )
@@ -42,7 +42,7 @@ module.exports = {
             }
         )
     })
-    db.on(close());
+    
 }
     )
 
@@ -73,7 +73,7 @@ module.exports = {
                  )
         })
     
-        db.on(close());})
+        })
    
     },
 

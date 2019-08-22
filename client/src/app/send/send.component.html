@@ -1,0 +1,16 @@
+<form [formGroup] = "sendForm" (ngSubmit) = "onSubmit()">
+  <div class="form-group">
+    <label for="groupName">Group Name</label>
+    <input formControlName = "groupName" type="text" class="form-control" id="groupName" placeholder="Myself">
+  </div>
+  <div class="form-group">
+    <label for="eventName">Event Name</label>
+    <input formControlName = "eventName" type="text" class="form-control" id="eventName" placeholder="Another input">
+  </div>
+  <div class="form-group">
+    <label for="message"> Message</label>
+    <textarea  formControlName = "message" class="form-control rounded-0" id="message" rows="3"></textarea>
+  </div>
+
+  <button (ngSubmit) = "onSubmit()" type="submit" class="btn btn-primary mb-2">Send Message</button>
+</form>
